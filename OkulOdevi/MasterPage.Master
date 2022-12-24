@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="OkulOdevi.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <h1><strong>Merhaba <%= Session["adisoyadi"] %></strong></h1>
+        <div>
+            <a href="Kisiler.aspx">Kişiler</a>
+            <%if (Convert.ToInt32(Session["departmanId"]) != 3) { %>
+            <a href="KisiEkle.aspx">Kişi Ekle</a>
+            <%} %>
+            <%if (Convert.ToInt32(Session["departmanId"]) == 1) { %>
+            <a href="Departmanlar.aspx">Departmanlar</a>
+            <%} %>
+            <a href="cikis.aspx">Çıkış</a>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
